@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { cekKey } = require('../database/db'); 
-const { youtubePlay, youtubeMp4, youtubeMp3 } = require('../controllers/yt');
+const { youtubePlay, youtubeMp4, youtubeMp3 ,TiktokDl} = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi } = require('../controllers/randomtext');
 // Check Apikey
 router.get('/checkkey', async (req, res) => {
@@ -21,6 +21,7 @@ router.get('/checkkey', async (req, res) => {
 router.get('/ytplay', youtubePlay);
 router.get('/ytmp4', youtubeMp4);
 router.get('/ytmp3', youtubeMp3);
+router.get('/tiktok', TiktokDl);
 router.get('/caklontong', cakLontong);
 router.get('/quotes', quotes);
 router.get('/fakta', fakta);
