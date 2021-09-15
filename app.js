@@ -28,7 +28,6 @@ const limiter = rateLimit({
   message: 'Oops too many requests'
 });
 app.use(limiter);
-
 app.set('view engine', 'ejs');
 app.use(expressLayout);
 app.use(express.static('public'));
@@ -45,7 +44,6 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-
 app.use(passport.initialize());
 app.use(passport.session());
 require('./lib/config')(passport);
@@ -75,10 +73,16 @@ app.get('/docs', isAuthenticated, async (req, res) => {
     layout: 'layouts/main'
   });
 });
-
+app.post('/cekip, function(req, res) {
+  console.log(req.headers);
+  res.json({ 
+  ipaddress : req.headers["x-forwarded-for"] || req.headers.remoteAddress, 
+  language : req.headers["accept-language"].split(",")[0], 
+  opsystem : req.headers["user-agent"].split("(")[1].split(")")[0]
+  });
+});
 app.use('/api', apiRouters);
 app.use('/users', userRouters);
-
 app.set('json spaces', 4);
 
 app.listen(PORT, () => {
