@@ -73,7 +73,7 @@ app.get('/docs', isAuthenticated, async (req, res) => {
     layout: 'layouts/main'
   });
 });
-app.post('/cekip, function(req, res) {
+app.post('/cekip', function(req, res) {
   console.log(req.headers);
   res.json({ 
   ipaddress : req.headers["x-forwarded-for"] || req.headers.remoteAddress, 
