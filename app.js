@@ -73,17 +73,6 @@ app.get('/docs', isAuthenticated, async (req, res) => {
     layout: 'layouts/main'
   });
 });
-app.get('/cekip', async(req, res) => {
-  console.log(req.headers);
-  res.json({
-  status : true,
-  code : 200,
-  author : '@Franky404',
-  your_ip : req.headers["x-forwarded-for"] || req.headers.remoteAddress, 
-  your_lang : req.headers["accept-language"].split(",")[0], 
-  your_user_agent : req.headers["user-agent"].split("(")[1].split(")")[0]
-  });
-});
 app.use('/api', apiRouters);
 app.use('/users', userRouters);
 app.set('json spaces', 4);
