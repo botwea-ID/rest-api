@@ -17,6 +17,16 @@ router.get('/checkkey', async (req, res) => {
     });
     res.send({status: 200, apikey: apikey, response: 'Active'});
 });
+router.get('/cekip', async (req, res) => {
+  console.log(req.headers);
+  res.json({
+  status : true,
+  your_ip : req.headers["x-forwarded-for"] || req.headers.remoteAddress, 
+  your_lang : req.headers["accept-language"].split(",")[0], 
+  your_user_agent : req.headers["user-agent"].split("(")[1].split(")")[0]
+  });
+});
+
 // Router Api
 router.get('/ytplay', youtubePlay);
 router.get('/ytmp4', youtubeMp4);
