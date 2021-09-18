@@ -38,6 +38,6 @@ router.get('/fakta', fakta);
 router.get('/bijak', bijak);
 router.get('/ptl', ptl);
 router.get('/motivasi', motivasi);
-///router.get('/drakjokes', drakjoke);
+///router.get('/drakjoke', drakjoke);
 
 module.exports = router;
