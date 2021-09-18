@@ -32,12 +32,12 @@ router.get('/ytplay', youtubePlay);
 router.get('/ytmp4', youtubeMp4);
 router.get('/ytmp3', youtubeMp3);
 router.get('/tiktok', TiktokDl);
+router.get('/drakjoke', drakjoke);
 router.get('/caklontong', cakLontong);
 router.get('/quotes', quotes);
 router.get('/fakta', fakta);
 router.get('/bijak', bijak);
 router.get('/ptl', ptl);
 router.get('/motivasi', motivasi);
-///router.get('/drakjoke', drakjoke);
 
 module.exports = router;
