@@ -1,3 +1,4 @@
+_dirname = process.cwd()
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -57,12 +58,9 @@ app.use(function(req, res, next) {
   res.locals.user = req.user || null;
   next();
 })
-
 app.get('/', (req, res) => {
-  res.render('index', {
-    layout: 'layouts/main'
-  });
-});
+    res.sendFile(_dirname + '/views/index.html')
+
 
 app.get('/docs', isAuthenticated, async (req, res) => { 
   let getkey = await getApikey(req.user.id)
