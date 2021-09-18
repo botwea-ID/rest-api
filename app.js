@@ -60,7 +60,7 @@ app.use(function(req, res, next) {
 })
 app.get('/', (req, res) => {
     res.sendFile(_dirname + '/views/index.html')
-
+})
 
 app.get('/docs', isAuthenticated, async (req, res) => { 
   let getkey = await getApikey(req.user.id)
